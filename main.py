@@ -21,11 +21,18 @@ def keep_alive():
 class MyClient(discord.Client):
     async def on_ready(self):
         print(f'تم تسجيل الدخول كـ {self.user}')
+        # جعل الحالة "متصل"
         await self.change_presence(status=discord.Status.online)
 
 if __name__ == "__main__":
     keep_alive() # تشغيل الخادم في الخلفية
     client = MyClient()
-    # استدعاء التوكن من "البيئات" وليس كتابته مباشرة للأمان
-    token = os.getenv("MTQyNDg0MzQ0NzUxMjIwMzI4NA.G_pl6X.0Jy2B2j3iJmIyXlPCllAFt7Gd84EdRiUbDAlN4")
-    client.run(token)
+    
+    # التعديل هنا: يجب أن نستخدم اسم المتغير الذي وضعته في إعدادات Render
+    # نحن اتفقنا أن نسميه TOKEN
+    token = os.getenv("TOKEN") 
+    
+    if token:
+        client.run(token)
+    else:
+        print("خطأ: لم يتم العثور على TOKEN في إعدادات Environment")
