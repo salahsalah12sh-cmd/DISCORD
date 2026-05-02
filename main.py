@@ -34,5 +34,14 @@ if __name__ == "__main__":
     
     if token:
         client.run(token)
+        # ... نهاية الكود ...
+if __name__ == "__main__":
+    keep_alive()
+    client = MyClient()
+    
+    # هذا السطر يخبر البرنامج أن يبحث عن التوكن في إعدادات الموقع السرية
+    token = os.getenv("TOKEN") 
+    
+    client.run(token)
     else:
         print("خطأ: لم يتم العثور على TOKEN في إعدادات Environment")
