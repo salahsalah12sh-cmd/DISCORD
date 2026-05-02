@@ -25,17 +25,6 @@ class MyClient(discord.Client):
         await self.change_presence(status=discord.Status.online)
 
 if __name__ == "__main__":
-    keep_alive() # تشغيل الخادم في الخلفية
-    client = MyClient()
-    
-    # التعديل هنا: يجب أن نستخدم اسم المتغير الذي وضعته في إعدادات Render
-    # نحن اتفقنا أن نسميه TOKEN
-    token = os.getenv("TOKEN") 
-    
-    if token:
-        client.run(token)
-        # ... نهاية الكود ...
-if __name__ == "__main__":
     keep_alive()
     client = MyClient()
     
